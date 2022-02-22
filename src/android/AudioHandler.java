@@ -440,17 +440,9 @@ public class AudioHandler extends CordovaPlugin {
         };
 
     public void getAudioFocus() {
-        String TAG2 = "AudioHandler.getAudioFocus(): Error : ";
-
-        AudioManager am = (AudioManager) this.cordova.getActivity().getSystemService(Context.AUDIO_SERVICE);
-        int result = am.requestAudioFocus(focusChangeListener,
-                                          AudioManager.USAGE_NOTIFICATION,
-                                          AudioManager.AUDIOFOCUS_LOSS_TRANSIENT);
-
-        if (result != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-            LOG.e(TAG2,result + " instead of " + AudioManager.AUDIOFOCUS_REQUEST_GRANTED);
-        }
-
+        // Do nothing. We don't want AudioFocus here because it prevents
+        // other apps from playing audio in the background once we start 
+        // playing sound effects.
     }
 
 
